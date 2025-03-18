@@ -7,6 +7,13 @@ body {
     /* text-align: center; */
     overflow-y: scroll; 
   }
+
+  .incorrect {
+    color: red;
+  }
+
+  /*TODO: center the pills tab*/
+  /*TODO: work on submit function */
   
   /* scrollbar styles for pastel pink color */
   ::-webkit-scrollbar {

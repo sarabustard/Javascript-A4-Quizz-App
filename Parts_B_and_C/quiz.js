@@ -1,5 +1,6 @@
 /* We will define an empty, class-level array of questionObjects to add questions to directly from the json file */
 let questionObjects = [];
+let userAnswers = [];
 
 /* In window.onload, we will use this code to get the information directly from the json file */
 /* You can use a shortcut snippet to paste this code out by just typing 'ajax' */
@@ -28,6 +29,9 @@ window.onload = function () {
       addActiveButton();
       addActiveContent();
 
+      let btn = document.querySelector(".btn");
+      btn.addEventListener("click", submitQuiz);
+
       }
   };
 
@@ -50,7 +54,7 @@ window.onload = function () {
       questionHTML += '<div class="choices">';
         for (let j = 0; j < temp.choices.length; j++) {
           let options = questionObjects[i].choices[j];
-          questionHTML += '<div class="answer"><input type="radio" name="answer' + i + '" value="' + options + '>"' + "<label class=" + "answerLabel" + "/>" + options + "</label></div>" + "<br>";
+          questionHTML += '<div class="answer"><input type="radio" name="answer' + i + '" value="' + options + '">' + "<label class=" + "answerLabel" + "/>" + options + "</label></div>" + "<br>";
         }
       questionHTML += '</div></div></div></div>';
       return questionHTML;
@@ -101,23 +105,156 @@ window.onload = function () {
     let heading = document.querySelector("#quizHeading");
     heading.innerHTML = a;
   }
-    
-  // Function to handle quiz submission and calculate the score
-  function submitQuiz() {
-    // change to query selector
-    const form = document.getElementById('quizForm');
-    let score = 0;
-    const questions = quizData.questions;
-    
-    for (let i = 0; i < questions.length; i++) {
-      const selectedOption = form.querySelector('input[name="question' + i + '"]:checked');
-      
-      if (selectedOption && parseInt(selectedOption.value) === questions[i].answer) {
-        score++;
+
+  // repeated code: allButtons - doesn't work when class-level - look into it
+
+  function checkForMissingAnswers() {
+    // loop through
+    let check = false;
+    let allButtons = document.querySelectorAll("input[type='radio']");
+    // Loop through every radio button in the document
+    for (let i = 0; i < allButtons.length; i++) {
+      let selectedOptions = document.querySelectorAll('input[name="answer' + i + '"]');
+      for (let j = 0; j < selectedOptions.length; j++) {
+        // if all are not checked
+        // if one is checked, then set check to true!
+        if (selectedOptions[j].checked) {
+          check = true;
+          break;
+        }
+        else {
+          check = false;
+        }
       }
     }
-   // change to query selector
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = 'You got ' + score + ' out of ' + questions.length + ' correct!';
+    return check;
   }
-  
+
+  // I got the checkForMissingAnswers function working!!
+
+  function recordAnswers() {
+    // This logs to the console whatever you've checked
+    let check = false;
+    let allButtons = document.querySelectorAll("input[type='radio']");
+    // Loop through every radio button in the document
+    for (let i = 0; i < allButtons.length; i++) {
+      let selectedOptions = document.querySelectorAll('input[name="answer' + i + '"]');
+      for (let j = 0; j < selectedOptions.length; j++) {
+        // if all are not checked
+        // if one is checked, then set check to true!
+        if (selectedOptions[j].checked) {
+          check = true;
+          console.log(selectedOptions[j]);
+          console.log('checked');
+        }
+      }
+    }
+  }
+
+  function calculateScore() {
+
+  }
+
+  function makeResultsTable() {
+    let table = document.querySelector("#tableContainer");
+    let allButtons = document.querySelectorAll("input[type='radio']:checked");
+    html = "<h2>Details</h2>";
+    html += "<table>";
+    html += "<tr><th>Question #</th>";
+    html += "<th>Question Text</th>";
+    html += "<th>Correct Answer</th>";
+    html += "<th>Your Answer</th>";
+    html += "<th>Score</th></tr>";
+    for (i = 0; i < questionObjects.length; i++) {
+      html += "<tr id='row" + i + "'>";
+      let temp = questionObjects[i];
+      html += "<td>" + "Question " + (i + 1) + "</td>";
+      html += "<td>" + temp.questionText + "</td>";
+      html += "<td>" + temp.choices[temp.answer] + "</td>";
+      html += "<td>" + allButtons[i].value + "</td>";
+      html += "<td>" + scores[i] + "</td>";
+      html += "</tr>";
+    }
+    html += "</table>";
+    table.innerHTML = html;
+  }
+  // select it after table is built not while building it
+
+  // I want to make an array of 0 , 1, 0 .. scores
+  // createScoreArray
+  // from this we're going to add the 0 or 1 to the correct answers sum 
+
+  const scores = [];
+
+  function makeScoreArray() {
+    // Loop through checked buttons
+    let checkedBtns = document.querySelectorAll("input[type='radio']:checked");
+    for (let i = 0; i < checkedBtns.length; i++) {
+      let temp = questionObjects[i];
+      // const selectedOptions = document.querySelectorAll('input[name="answer' + i + '"]:checked');
+      // rather use checkedBtns, because selectedOptions checks the group specifically, and it would only return one answer, why?
+
+      // console.log('Answer index:' + temp.answer);
+      // console.log('Actual answer:' + temp.choices[temp.answer]);
+      // console.log('Selected answer:' + checkedBtns[i].value);
+      // Check if the selected answer is equal to the answer at that value (temp.answer) index of the choices array
+      if (checkedBtns[i].value == temp.choices[temp.answer]) {
+          scores[i] = 1;
+      }
+      else {
+        scores[i] = 0;
+      }
+    }
+    console.log(scores);
+    return scores;
+  }
+
+  function calculateScore(scoreArray) { // Calculate score based on score array
+    let score = 0;
+    for (let i = 0; i < scoreArray.length; i++) {
+      // console.log(scoreArray[i]);
+      if (scoreArray[i] == 1) {
+        score++;
+      }    
+    }
+    return score;  
+  }
+
+  function displayResult(result) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = 'You got ' + result + ' out of ' + questionObjects.length + ' correct!';
+  }
+
+  // Function to handle quiz submission and calculate the score
+  function submitQuiz() {
+    valid = checkForMissingAnswers();
+    if (valid == false) {
+      alert("You didn't answer all questions");
+    }
+    else {
+      let resultArray = makeScoreArray();
+      let result = calculateScore(resultArray);
+      displayResult(result);
+      makeResultsTable();
+      formatIncorrectAnswers();
+    }
+  }
+
+  function formatIncorrectAnswers() {
+    let allRows = document.querySelectorAll('tr');
+    for (let i = 0; i < allRows.length; i++) {
+      let thisRow = document.querySelector('#row' + i); 
+      console.log(thisRow.innerHTML);
+      if (scores[i] == 0) {
+        console.log('wrong answer');
+        thisRow.classList.add('incorrect');
+    }
+    }
+  }
+
+  //TODO: Get the MakeTable function making a table of the Question #, Question Text, Your Answer, and the Correct Answer - done
+  //TODO: Shall we make an array of answers 1 0 1 1 0 for right/wrong answer - done
+  //TODO: For all wrong answers, change the color - add class .incorrect - done YAYYYY
+  //TODO: Get Sara's update from github and add the stuff
+  //TODO: format table - done
+

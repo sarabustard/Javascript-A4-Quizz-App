@@ -1,5 +1,23 @@
 /* dark mode background and text colors */
 body {
+    font-family: 'Century Gothic', sans-serif; /* Set Century Gothic font */
+    margin: 20px;
+    background-color: #2c2f36;
+    color: #f0f0f0; 
+    /* text-align: center; */
+    overflow-y: scroll; 
+  }
+
+  .incorrect {
+    color: red;
+  }
+
+  table, tr, td, th {
+    border-collapse: collapse;
+    border: solid white 1px;
+    padding: 5px;
+  }
+
   font-family: 'century gothic', sans-serif;
   margin-left: 25%;
   background-color: rgb(44, 47, 54);

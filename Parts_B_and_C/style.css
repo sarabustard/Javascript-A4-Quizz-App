@@ -12,8 +12,11 @@ body {
     color: red;
   }
 
-  /*TODO: center the pills tab*/
-  /*TODO: work on submit function */
+  table, tr, td, th {
+    border-collapse: collapse;
+    border: solid white 1px;
+    padding: 5px;
+  }
   
   /* scrollbar styles for pastel pink color */
   ::-webkit-scrollbar {

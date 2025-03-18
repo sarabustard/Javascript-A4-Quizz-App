@@ -166,7 +166,7 @@ window.onload = function () {
     html += "<th>Your Answer</th>";
     html += "<th>Score</th></tr>";
     for (i = 0; i < questionObjects.length; i++) {
-      html += "<tr>";
+      html += "<tr id='row" + i + "'>";
       let temp = questionObjects[i];
       html += "<td>" + "Question " + (i + 1) + "</td>";
       html += "<td>" + temp.questionText + "</td>";
@@ -178,6 +178,7 @@ window.onload = function () {
     html += "</table>";
     table.innerHTML = html;
   }
+  // select it after table is built not while building it
 
   // I want to make an array of 0 , 1, 0 .. scores
   // createScoreArray
@@ -235,10 +236,25 @@ window.onload = function () {
       let result = calculateScore(resultArray);
       displayResult(result);
       makeResultsTable();
+      formatIncorrectAnswers();
     }
   }
 
-  //TODO: Get the MakeTable function making a table of the Question #, Question Text, Your Answer, and the Correct Answer
-  //TODO: Shall we make an array of answers 1 0 1 1 0 for right/wrong answer
-  //TODO: For all wrong answers, change the color - add class .incorrect
+  function formatIncorrectAnswers() {
+    let allRows = document.querySelectorAll('tr');
+    for (let i = 0; i < allRows.length; i++) {
+      let thisRow = document.querySelector('#row' + i); 
+      console.log(thisRow.innerHTML);
+      if (scores[i] == 0) {
+        console.log('wrong answer');
+        thisRow.classList.add('incorrect');
+    }
+    }
+  }
+
+  //TODO: Get the MakeTable function making a table of the Question #, Question Text, Your Answer, and the Correct Answer - done
+  //TODO: Shall we make an array of answers 1 0 1 1 0 for right/wrong answer - done
+  //TODO: For all wrong answers, change the color - add class .incorrect - done YAYYYY
+  //TODO: Get Sara's update from github and add the stuff
+  //TODO: format table - done
 

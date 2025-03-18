@@ -8,6 +8,7 @@ body {
     overflow-y: scroll; 
   }
 
+
   .incorrect {
     color: red;
   }
@@ -18,13 +19,11 @@ body {
     padding: 5px;
   }
 
-  font-family: 'century gothic', sans-serif;
-  margin-left: 25%;
-  background-color: rgb(44, 47, 54);
-  color: rgb(240, 240, 240);
-  overflow-y: scroll;
-  
-}
+  body {
+    margin-left: 10%;
+    background-color: rgb(44, 47, 54);
+    color: rgb(240, 240, 240);
+  }
 
 /* scrollbar styles for pastel pink color */
 ::-webkit-scrollbar {
@@ -44,15 +43,8 @@ body {
   background: rgba(178, 153, 208, 0.7);
 }
 
-#quizheading {
+#quizHeading {
   text-align: center;
-  
-}
-
-.questioncontainer {
-  display: flex;
-  justify-content: center;
-  
 }
 
 /* styling the centered image */
@@ -67,6 +59,7 @@ body {
 .question {
   width: 800px;
   margin-bottom: 20px;
+  margin-left: 200px;
   padding: 20px;
   background-color: rgb(75, 78, 88);
   border-radius: 8px;
@@ -115,7 +108,7 @@ body {
 html .btn {
   display: block;
   width: 200px;
-  margin-left:24%;
+  margin-left:38%;
   padding: 10px;
   background-color: rgb(245, 182, 211);
   color: rgb(255, 255, 255);

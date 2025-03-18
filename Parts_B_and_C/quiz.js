@@ -255,6 +255,6 @@ window.onload = function () {
   //TODO: Get the MakeTable function making a table of the Question #, Question Text, Your Answer, and the Correct Answer - done
   //TODO: Shall we make an array of answers 1 0 1 1 0 for right/wrong answer - done
   //TODO: For all wrong answers, change the color - add class .incorrect - done YAYYYY
-  //TODO: Get Sara's update from github and add the stuff
+  //TODO: Get Sara's update from github and add the stuff - done
   //TODO: format table - done
 

@@ -1,7 +1,7 @@
 /* dark mode background and text colors */
 body {
   font-family: 'century gothic', sans-serif;
-  margin: 20px;
+  margin-left: 25%;
   background-color: rgb(44, 47, 54);
   color: rgb(240, 240, 240);
   overflow-y: scroll;

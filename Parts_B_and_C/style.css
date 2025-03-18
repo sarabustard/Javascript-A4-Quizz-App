@@ -1,130 +1,215 @@
-/* Dark mode background and text colors */
+/* dark mode background and text colors */
 body {
-    font-family: 'Century Gothic', sans-serif; /* Set Century Gothic font */
-    margin: 20px;
-    background-color: #2c2f36;
-    color: #f0f0f0; 
-    /* text-align: center; */
-    overflow-y: scroll; 
-  }
+  font-family: 'century gothic', sans-serif;
+  margin: 20px;
+  background-color: rgb(44, 47, 54);
+  color: rgb(240, 240, 240);
+  overflow-y: scroll;
   
-  /* scrollbar styles for pastel pink color */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #333; /* Dark background for scrollbar track */
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #f5b6d3; 
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b299d070; /* purple on hover */
-  }
+}
 
-  #quizHeading {
-    text-align: center;
-  }
+/* scrollbar styles for pastel pink color */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  .questionContainer {
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Styling the centered image */
-  .center-img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    width: 400px; 
-  }
-  
-  /* Styling for questions and answers */
-  .question {
-    width: 800px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #4b4e58;
-    border-radius: 8px;
-  }
+::-webkit-scrollbar-track {
+  background: rgb(51, 51, 51);
+}
 
-  /* Question text */
-  .q {
-    text-align: center;
-    font-weight: bold;
-    color: #ffffff; 
-    background-color: #d4b6f960;
-    padding: 1em;
-  }
-/*   
-  .answer {
-    color: green;
-  } */
+::-webkit-scrollbar-thumb {
+  background: rgb(245, 182, 211);
+  border-radius: 10px;
+}
 
-  /* #container {
-    display: flex;
-    justify-content: center;
-  } */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(178, 153, 208, 0.7);
+}
 
-  /* Question header */
-  .question h2 {
-    text-align: center
-  }
+#quizheading {
+  text-align: center;
   
-  .answerLabel {
-    color: #e0d0e0; 
-  }
-  
-  /* styling radio buttons */
-  .choices input[type="radio"] {
-    -webkit-appearance: none; /* removes the default styling */
-    -moz-appearance: none; /* removes default styling for Firefox */
-    appearance: none; /* removes default styling for modern browsers */
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #efc5d8; 
-    border: 2px solid #e0d0e0;
-    display: inline-block;
-    position: relative;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .choices input[type="radio"]:checked {
-    background-color: #d4b6f960; 
-    border-color: #f0f0f0;
-  }
+}
 
-  /* Styling for the submit button */
-  html .btn {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #f5b6d3; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.questioncontainer {
+  display: flex;
+  justify-content: center;
   
-  html .btn:hover {
-    background-color: #d4b6f960; 
-  }
+}
 
-  /* styling for the result section */
-  html .result {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #d8cee4;
-  }
+/* styling the centered image */
+.center-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 400px;
+}
+
+/* styling for questions and answers */
+.question {
+  width: 800px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgb(75, 78, 88);
+  border-radius: 8px;
+}
+
+/* question text */
+.q {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background-color: rgba(212, 182, 249, 0.6);
+  padding: 1em;
+}
+
+/* question header */
+.question h2 {
+  text-align: center;
+}
+
+.answerlabel {
+  color: rgb(224, 208, 224);
+}
+
+/* styling radio buttons */
+.choices input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(239, 197, 216);
+  border: 2px solid rgb(224, 208, 224);
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.choices input[type="radio"]:checked {
+  background-color: rgba(212, 182, 249, 0.6);
+  border-color: rgb(240, 240, 240);
+}
+
+/* styling for the submit button */
+html .btn {
+  display: block;
+  width: 200px;
+  margin-left:24%;
+  padding: 10px;
+  background-color: rgb(245, 182, 211);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+html .btn:hover {
+  background-color: rgba(212, 182, 249, 0.6);
+}
+
+/* styling for the result section */
+html .result {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(216, 206, 228);
+}
+
+html button {
+  transition: background-color 0.3s ease;
+}
+
+/* override bootstrap button styles to match dark mode theme */
+.btn {
+  background-color: rgb(245, 182, 211);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(245, 182, 211);
+  border-radius: 5px;
   
-  html button {
-    transition: background-color 0.3s ease; /*Smooth transition for hover effect*/
-  }
+}
+
+.btn:hover, .btn:focus {
+  background-color: rgba(212, 182, 249, 0.6);
+  border-color: rgb(240, 240, 240);
+}
+
+/* style bootstrap pills (tabs) to match dark theme */
+.nav-pills .nav-link {
+  background-color: rgb(75, 78, 88);
+  color: rgb(224, 208, 224);
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: rgb(245, 182, 211);
+  color: rgb(255, 255, 255);
+}
+
+.nav-pills .nav-link.active {
+  background-color: rgba(212, 182, 249, 0.6);
+  color: rgb(255, 255, 255);
+}
+
+/* style radio buttons to match dark theme */
+.choices input[type="radio"] {
+  background-color: rgb(239, 197, 216);
+  border-color: rgb(224, 208, 224);
+}
+
+.choices input[type="radio"]:checked {
+  background-color: rgba(212, 182, 249, 0.6);
+  border-color: rgb(240, 240, 240);
+}
+
+/* style form inputs to match the theme */
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+  background-color: rgb(75, 78, 88);
+  color: rgb(224, 208, 224);
+  border: 1px solid rgb(51, 51, 51);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
+  background-color: rgb(44, 47, 54);
+  border-color: rgb(245, 182, 211);
+  outline: none;
+}
+
+/* styling the navbar */
+.navbar {
+  background-color: rgb(44, 47, 54);
+  color: rgb(240, 240, 240);
+}
+
+.navbar-nav .nav-link {
+  color: rgb(224, 208, 224);
+}
+
+.navbar-nav .nav-link:hover {
+  color: rgb(245, 182, 211);
+}
+
+/* style bootstrap tables */
+.table {
+  background-color: rgb(75, 78, 88);
+  color: rgb(224, 208, 224);
+  border: 1px solid rgb(51, 51, 51);
+}
+
+.table th, .table td {
+  border-color: rgb(51, 51, 51);
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: rgb(44, 47, 54);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgb(245, 182, 211);
+  color: rgb(255, 255, 255);
+}

@@ -1,0 +1,46 @@
+{
+    "quiz_title": "Women in IT",
+    "questions": [
+      {
+        "question": "Who was the first woman to develop the first computer program?",
+        "choices": ["Ada Lovelace", "Grace Hopper", "Marie Curie", "Radia Perlman"],
+        "answer": "Ada Lovelace"
+      },
+      {
+        "question": "Who was the first female computer scientist to earn the title of 'computer programmer'?",
+        "choices": ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"],
+        "answer": "Grace Hopper"
+      },
+      {
+        "question": "Who developed the first compiler, which is fundamental to programming languages?",
+        "choices": ["Radia Perlman", "Ada Lovelace", "Grace Hopper", "Margaret Hamilton"],
+        "answer": "Grace Hopper"
+      },
+      {
+        "question": "Who is credited with creating the concept of 'packet switching,' which is foundational to the internet?",
+        "choices": ["Radia Perlman", "Vint Cerf", "Marissa Mayer", "Mary Lou Jepsen"],
+        "answer": "Radia Perlman"
+      },
+      {
+        "question": "Which woman is known for her role in launching NASA's Apollo space missions as the software engineer who wrote the onboard flight software?",
+        "choices": ["Ada Lovelace", "Margaret Hamilton", "Mary Lou Jepsen", "Carol Shaw"],
+        "answer": "Margaret Hamilton"
+      },
+      {
+        "question": "Who co-founded the technology company *Hewlett-Packard* (HP) and was the first woman to receive a computer science degree from Stanford?",
+        "choices": ["Meg Whitman", "Sheryl Sandberg", "Patricia Maresca", "Judy Estrin"],
+        "answer": "Judy Estrin"
+      },
+      {
+        "question": "Who is the co-founder of the social media giant *Facebook* and served as its Chief Operating Officer (COO)?",
+        "choices": ["Sheryl Sandberg", "Marissa Mayer", "Sara Blakely", "Meg Whitman"],
+        "answer": "Sheryl Sandberg"
+      },
+      {
+        "question": "Which of the following women is NOT considered a major contributor to the field of artificial intelligence?",
+        "choices": ["Karen Spärck Jones", "Cynthia Breazeal", "Margaret Hamilton", "Marie Curie"],
+        "answer": "Marie Curie"
+      }
+    ]
+  }
+  
